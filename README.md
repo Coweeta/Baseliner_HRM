@@ -12,3 +12,10 @@ column: contents
 5: vpd (kPa)
 6: par or radiation (arbitrary units)
 7-...: converted HRM velocities (arbitrary units)
+
+Notes 11/6/2019:
+Uploaded minor revisions to SapEditWindow and SapflowProcessor.
+The program currently works; however, there is a known glitchiness to the automatic zoom function in the editor window. Will be corrected at earliest convenience in the future.
+In order to launch program, run the following subscript or command: SapEditWindow
+
+
