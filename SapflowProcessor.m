@@ -371,7 +371,8 @@ classdef SapflowProcessor < handle
             % Based on the sapflow, bla and VPD data, calculate the K, KA
             % and NVPD values.
             %
-            if sum(o.ss(o.bli)>0)>=2
+            % If at least two bla points are finite ...
+            if sum(isfinite(o.ss(o.bli)))>=2
                 blv = interp1(o.bli, o.ss(o.bli), (1:o.ssL));
                 o.k_line = o.ss - blv;
             else
@@ -379,8 +380,8 @@ classdef SapflowProcessor < handle
                 o.k_line = nan*o.ss;
             end
 
-            % If at least two bla points are positive ...
-            if sum(o.ss(o.bla)>0)>=2
+            % If at least two bla points are finite ...
+            if sum(isfinite(o.ss(o.bla)))>=2
                 blv = interp1(o.bla, o.ss(o.bla), (1:o.ssL));
                 o.ka_line = o.ss - blv;
                 o.nvpd = o.vpd ./ max(o.vpd) .* max(o.ka_line);
